@@ -1,6 +1,6 @@
 public class locatelli {
     public static int  colpito ( int [] [] m, int x, int y){
-        int ritorno;
+        int ritorno = 0;
         if (m[x][y] == 0){
             ritorno = 0;
             m[x][y] = 3;
@@ -15,6 +15,6 @@ public class locatelli {
         if (m[x][y] == 3){
             ritorno = 3;
         }
-                return ritorno;
-            }
-        }
+        return ritorno;   
+    }    
+}

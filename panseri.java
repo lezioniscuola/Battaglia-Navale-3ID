@@ -3,7 +3,7 @@ public class Main {
     
   }
 
-  private static int [][] campoDiBattaglia(int lunghezza, string nome){
+  private static int [][] campoDiBattaglia(int lunghezza){
     int [][] nome = new int [lunghezza][lunghezza];
       return nome;
   }

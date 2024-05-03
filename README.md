@@ -25,4 +25,4 @@
 ---
 - NB: Le navi sono di dimensioni 1,2,3
 ---
-**Le funzioni saranno da inserire nel file funzBattagliaNavale della cartella chiamata navi, il main poi sarà creato in seguito. Ognuno dovra firmare con un commento la funzione che realizzerà.**
+**Le funzioni saranno da inserire nel file con il proprio cognome, il main poi sarà creato in seguito. Ognuno dovra firmare con un commento la funzione che realizzerà.**

@@ -1,8 +1,11 @@
 # Battaglia-Navale-3ID
 
 **Appunti: Gruppo 1**
-	- Realizzazione della battaglia navale contro un computer. 
+
+	- Realizzazione della battaglia navale contro un computer.
+ 
 	- Funzioni da realizzare:
+ 
 > - f()==> Creazione del campo di battaglia, data la dimensione, richiamata 2 volte;
 	> - Specifiche: Matrice di interi, 0=H2O, 1=Nave Presente, 2=Colpito, 3=Colpo a vuoto;
 > - f()==> Posizionamento di tutte le navi e di tutte le dimensioni, richiamando le precedenti;

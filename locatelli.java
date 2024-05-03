@@ -1,19 +1,20 @@
 public class locatelli {
-    public static int [][] colpito ( int [] [] m, int x, int y){
+    public static int  colpito ( int [] [] m, int x, int y){
+        int ritorno;
         if (m[x][y] == 0){
-            System.out.println("colpo a vuoto");
+            ritorno = 0;
             m[x][y] = 3;
         }
         if (m[x][y] == 1){
-            System.out.println("colpito");
+            ritorno = 1;
             m[x][y] = 2;
         }
         if (m[x][y] == 2){
-            System.out.println("colpo su una nave già colpita");
+            ritorno = 2;
         }
         if (m[x][y] == 3){
-            System.out.println("colpo a vuoto ripetuto");
+            ritorno = 3;
         }
-                return m;
+                return ritorno;
             }
         }

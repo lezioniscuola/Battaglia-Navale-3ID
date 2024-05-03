@@ -15,7 +15,7 @@
 >  - f()==> Controllo se colpito, data la matrice del campo di gioco e le coordinate; (Spara) - Locatelli
 	> - Specifiche: Ritorna un intero in base alla verifica attuata (0=colpo a vuoto,1=colpito,2=colpo su una nave già colpita,3=colpo a vuoto ripetuto), contemporaneamente cambia il valore nella matrice dato quelli nella funzione 1;
 > - f()==> Funzione che controlla la vittoria, che controlla se le navi sono state tutte colpite, data la matrice, l'array delle navi; - Seghezzi
-			Specifiche: Quindi se non ci sono 1 nel campo
+	> - Specifiche: Quindi se non ci sono 1 nel campo
 > - f()==> Stampa del campo; - Viapiana
 	> - Specifiche: Griglia che sostituisce il numero dei fattori dati dalla funzione 1, inoltre stampa le indicazioni della griglia 1 - n(dimensione campo);
 > - f()==> Simulazione del computer; - Rocchi

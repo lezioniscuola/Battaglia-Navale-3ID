@@ -1,5 +1,4 @@
 public class dortenzio {
-    public static void main(String[] args) {
         private static void posizionamento(int [][] m){
         // D'Ortenzio
         //La funzione si baserà sul gestire le navi da inserire che verranno inserite dalla funzione: posizionamento() di Karaje
@@ -15,5 +14,4 @@ public class dortenzio {
         }
         //Terminato il ciclo sarà completato l'insermento auotmatico, grazie alla collaborazione tra le 2 funzioni.
       }
-    }
 }

@@ -19,10 +19,10 @@
 > - f()==> Stampa del campo; - Viapiana
 	> - Specifiche: Griglia che sostituisce il numero dei fattori dati dalla funzione 1, inoltre stampa le indicazioni della griglia 1 - n(dimensione campo);
 > - f()==> Simulazione del computer; - Rocchi
-	> - Specifiche: Genera numeri casuali 
+	> - Specifiche: Genera numeri casuali cioè il colpo che farà il computer, inoltre creerà un'altra funzione modificando quella di stampa per la stampa del campo del computer eliminando la vista delle navi ovviamente.
  > - Unione del gioco: (Ognuno la farà per sè)
 > - f()==> Main
 ---
 - NB: Le navi sono di dimensioni 1,2,3
 ---
-**Le funzioni saranno da inserire nel file con il proprio cognome, il main poi sarà creato in seguito. Ognuno dovra firmare con un commento la funzione che realizzerà.**
+**Le funzioni saranno da inserire nel file con il proprio cognome, il main poi sarà creato in seguito unendo le diverse funzioni. Ognuno dovra firmare con un commento la funzione che realizzerà.**

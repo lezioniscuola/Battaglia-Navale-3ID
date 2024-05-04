@@ -20,7 +20,7 @@
 	> - Specifiche: Griglia che sostituisce il numero dei fattori dati dalla funzione 1, inoltre stampa le indicazioni della griglia 1 - n(dimensione campo);
 > - f()==> Simulazione del computer; - Rocchi
 	> - Specifiche: Genera numeri casuali cioè il colpo che farà il computer, inoltre creerà un'altra funzione modificando quella di stampa per la stampa del campo del computer eliminando la vista delle navi ovviamente.
- > - Unione del gioco: (Ognuno la farà per sè)
+ > - Unione del gioco - D'Ortenzio cooperata anche da altri così che il lavoro sarà distribuito
 > - f()==> Main
 ---
 - NB: Le navi sono di dimensioni 1,2,3

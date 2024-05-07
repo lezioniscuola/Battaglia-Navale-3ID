@@ -7,10 +7,9 @@ public class funzBattagliaNavale {
         int [][] nome = new int [lunghezza][lunghezza];
         return nome;
     }
-    public static void posizionamentoTotale(int [][] m){ //D'Ortenzio
-        // D'Ortenzio
+    public static void posizionamentoTotale(int [][] m,int [] navi){ //D'Ortenzio
         //La funzione si baserà sul gestire le navi da inserire che verranno inserite dalla funzione: posizionamento() di Karaje
-        int [] navi={5,3,2}; //Nave piccola (1 casella):5,Veliero (2 caselle):3,Portaerei (3 caselle):2
+        //N° navi in base al dichiarato nel Main 
         int inserite,dim=0; //Navi totali da inserire (Per comodità e compatibilità con una possibile estensione che potrà decidere le quantità di navi)
         for (int i=1; i<=navi.length;i++){
             inserite=0;
@@ -30,7 +29,7 @@ public class funzBattagliaNavale {
         //Terminare
         return s;
     }
-    public static String stampaCampoPng(int [][] matrice){
+    public static String stampaCampoPng(int [][] matrice){ //Funzione modificata di quella di Viapiana
         String s="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
         //Terminare
         return s;

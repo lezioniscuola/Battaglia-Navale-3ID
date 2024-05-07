@@ -1,7 +1,7 @@
-package navi2;
+package navi;
 import java.util.Scanner;
 
-public class juegoCompletoConLivellos {
+public class juegoCompleto {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         int scelta;

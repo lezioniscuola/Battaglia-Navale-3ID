@@ -1,8 +1,4 @@
 public class karaje {
-    public static void main(String[] args) {
-        int[][] matriceComputer = new int[1][1];
-        posizionamento(matriceComputer, 3);
-    }
     public static void posizionamento(int[][] matriceComputer, int dimensioneBarca) {
         int righe = matriceComputer.length;
         int colonne = matriceComputer[0].length;
@@ -11,12 +7,11 @@ public class karaje {
         int direzione = (int) (Math.random() * 2);
         boolean posizionato = false;
         if (dimensioneBarca >= 4 || dimensioneBarca < 1) {
-            throw new IllegalArgumentException("Dimensione barca non valida");
+            throw new IllegalArgumentException("Dimensione barca non valida"); // In caso in cui la dimensione della barca non è valida si lancia un errore
         }
         if (dimensioneBarca > righe || dimensioneBarca > colonne) {
-            throw new IllegalArgumentException("La barca non può stare nel campo di battaglia");
+            throw new IllegalArgumentException("La barca non può stare nel campo di battaglia"); // In caso in cui la barca non può stare nel campo si lancia un errore
         }
-        
         while (!posizionato) {
             if (direzione == 0) {
                 if (x + dimensioneBarca < righe) {

@@ -24,14 +24,76 @@ public class funzBattagliaNavale {
     private static void posizionamento(int[][] matriceComputer, int dimensioneBarca){ //Karaje
       //Terminare
     }
-    public static String stampaCampoGiocatore(int [][] matrice){ //Viapiana
+   public static String stampaCampoGiocatore(int [][] matrice){ //Viapiana
         String s="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
-        //Terminare
+        //Stampa della riga di indici superiori
+        for (int k=0;k<matrice[0].length;k++){
+            s=s+k+"\t";
+        }
+        s=s+"\n";
+        //Stampa di una riga di separazione
+        for (int p=-1;p<matrice[0].length;p++){ //p=-1 perchè conta anche la prima riga di indici verticali
+            s=s+"_"+"\t";
+        }
+        s=s+"\n";
+        // for che stampa la colonna verticale degli indici più il campo
+        for( int i = 0; i < matrice.length; i++){
+            s=s+i + " | ";
+            for ( int j = 0; j < matrice[i].length; j++){
+                switch (matrice[i][j]){
+                    case 0:
+                        s=s+"\uD83C\uDF0A"+"\t";
+                        break;
+                    case 1:
+                        s=s+"\uD83D\uDEA2"+"\t";
+                        break;
+                    case 2:
+                        s=s+"\uD83D\uDCA5"+"\t";
+                        break;
+                    case 3:
+                        s=s+"\uD83D\uDD2B"+"\t";            //   \t = spazio           \n = va a capo
+                        break;
+                    default:
+                        s=s+matrice[i][j]+"\t";
+                }
+            }
+            s=s+"\n";
+        }
         return s;
     }
-    public static String stampaCampoPng(int [][] matrice){ //Funzione modificata di quella di Viapiana
+    public static String stampaCampoPng(int [][] matrice){ //Viapiana
         String s="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
-        //Terminare
+        //Stampa della riga di indici superiori
+        for (int k=0;k<matrice[0].length;k++){
+            s=s+k+"\t";
+        }
+        s=s+"\n";
+        //Stampa di una riga di separazione
+        for (int p=-1;p<matrice[0].length;p++){ //p=-1 perchè conta anche la prima riga di indici verticali
+            s=s+"_"+"\t";
+        }
+        s=s+"\n";
+        // for che stampa la colonna verticale degli indici più il campo
+        for( int i = 0; i < matrice.length; i++){
+            s=s+i + " | ";
+            for ( int j = 0; j < matrice[i].length; j++){
+                switch (matrice[i][j]){
+                    case 0:
+                    case 1:
+                        s=s+"\uD83C\uDF0A"+"\t";
+                        break;
+                    case 2:
+                        s=s+"\uD83D\uDCA5"+"\t";
+                        break;
+                    case 3:
+                        s=s+"\uD83D\uDD2B"+"\t";
+                        break;
+                    default:
+                        s=s+matrice[i][j]+"\t";
+                }
+            }
+            s=s+"\n";
+        }
         return s;
     }
     public static int  colpito ( int [] [] m, int x, int y){ //Locatelli
@@ -63,6 +125,24 @@ public class funzBattagliaNavale {
         return true;
     }
     public static void colpoPng (int [][] m, int livello) { //Rocchi
-        //Terminare: Data la matrice con i colpi del png inserire i colpi effettuati evitando così colpi ripetuti
+    //matrice = colpi livello = numeri di colpi inseriti
+    
+    int riga,colonna;
+    boolean isGiaPresente=false;
+    Random rand = new Random();
+    do {
+        // Generazione di due numeri casuali compresi tra 0 e n
+        riga = rand.nextInt(m[0][0]); //m[0][0]=grandezza campo
+        colonna = rand.nextInt(m[0][0]);
+        for (int i=1;i<=livello;i++){
+            //Controllo matrice colpi
+            if (m[i][0] == riga && m[i][1] == colonna){
+                isGiaPresente=true;
+                break;
+            }
+        }
+    }while (isGiaPresente);
+    m[livello][0]=riga;
+    m[livello][1]=colonna;
     }
 }

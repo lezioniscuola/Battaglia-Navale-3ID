@@ -1,6 +1,6 @@
 package navi;
 import java.util.Scanner;
-//Lib=funzBattagliaNavale
+
 public class juegoCompleto {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
@@ -180,7 +180,7 @@ public class juegoCompleto {
                             "Una nave occupa un certo numero di quadretti adiacenti in linea retta (orizzontale o verticale) sulla tabella. NB: Due navi possono toccarsi.\n" +
                             "In base alla difficoltà ci saranno più o meno navi posizionate, sempre di dimensione 1,2 e massimo 3. Il giocatore di turno \"spara un colpo\" dichiarando un quadretto (per esempio, \"B-5\"). Quando un colpo centra l'ultimo quadretto di una nave non ancora affondata, il giocatore perderà la nave. \n" +
                             "Vince il giocatore che fa affondare tutte le navi dell'avversario per primo.");
-                    System.out.println("Simbologie usate: \n - \uD83C\uDF0A = Mare \n - \uD83D\uDEA2 = Nave \n - \uD83D\uDCA5 = Colpo ad una nave \n - \uD83D\uDD2B = Colpo a vuoto");
+                    System.out.println("Simbologie usate: \n - \uD83C\uDF0A = Mare \n - \uD83D\uDEA2 = Nave \n - \u26F5 = Colpo ad una nave \n - \uD83D\uDD2B = Colpo a vuoto");
                     System.out.println("Essendo che è PvE al ggiocatore verranno proposti due campi uno quello da colpire ed uno il suo.");
                     break;
                 case 2: //Bye bye

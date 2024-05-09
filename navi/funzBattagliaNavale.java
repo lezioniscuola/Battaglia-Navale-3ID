@@ -9,7 +9,7 @@ public class funzBattagliaNavale2 {
     }
     public static void posizionamentoTotale(int [][] m,int [] navi){ //D'Ortenzio
         //La funzione si baserà sul gestire le navi da inserire che verranno inserite dalla funzione: posizionamento() di Karaje
-        //N° navi in base al dichiarato nel Main 
+        //N° navi in base al dichiarato nel Main
         int inserite,dim=0; //Navi totali da inserire (Per comodità e compatibilità con una possibile estensione che potrà decidere le quantità di navi)
         for (int i=1; i<=navi.length;i++){
             inserite=0;
@@ -21,7 +21,7 @@ public class funzBattagliaNavale2 {
         }
         //Terminato il ciclo sarà completato l'insermento auotmatico, grazie alla collaborazione tra le 2 funzioni.
     }
-     public static void posizionamento(int[][] matriceComputer, int dimensioneBarca) { //Karaje
+    public static void posizionamento(int[][] matriceComputer, int dimensioneBarca) { //Karaje
         int righe = matriceComputer.length; // Ottengo il numero di righe della matrice
         int colonne = matriceComputer[0].length; // Ottengo il numero di colonne della matrice
         int x = (int) (Math.random() * righe); // Genero un numero casuale per la coordinata x
@@ -69,13 +69,13 @@ public class funzBattagliaNavale2 {
                 }
             }
             if (!posizionato) { // Se la barca non è posizionata
-                x = (int) (Math.random() * righe); // Genero un nuovo numero casuale per la coordinata x 
+                x = (int) (Math.random() * righe); // Genero un nuovo numero casuale per la coordinata x
                 y = (int) (Math.random() * colonne); // Genero un nuovo numero casuale per la coordinata y
                 direzione = (int) (Math.random() * 2); // Genero un nuovo numero casuale per la direzione
-           }
+            }
         }
     }
-   public static String stampaCampoGiocatore(int [][] matrice){ //Viapiana
+    public static String stampaCampoGiocatore(int [][] matrice){ //Viapiana
         String s="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
         //Stampa della riga di indici superiori
         for (int k=0;k<matrice[0].length;k++){
@@ -96,7 +96,7 @@ public class funzBattagliaNavale2 {
                         s=s+"\uD83C\uDF0A"+"\t";
                         break;
                     case 1:
-                        s=s+"\uD83D\u26F5"+"\t";
+                        s=s+"\u26F5"+"\t";
                         break;
                     case 2:
                         s=s+"\uD83D\uDCA5"+"\t";
@@ -176,24 +176,24 @@ public class funzBattagliaNavale2 {
         return true;
     }
     public static void colpoPng (int [][] m, int livello) { //Rocchi
-    //matrice = colpi livello = numeri di colpi inseriti
-    
-    int riga,colonna;
-    boolean isGiaPresente=false;
-    Random rand = new Random();
-    do {
-        // Generazione di due numeri casuali compresi tra 0 e n
-        riga = rand.nextInt(m[0][0]); //m[0][0]=grandezza campo
-        colonna = rand.nextInt(m[0][0]);
-        for (int i=1;i<=livello;i++){
-            //Controllo matrice colpi
-            if (m[i][0] == riga && m[i][1] == colonna){
-                isGiaPresente=true;
-                break;
+        //matrice = colpi livello = numeri di colpi inseriti
+
+        int riga,colonna;
+        boolean isGiaPresente=false;
+        Random rand = new Random();
+        do {
+            // Generazione di due numeri casuali compresi tra 0 e n
+            riga = rand.nextInt(m[0][0]); //m[0][0]=grandezza campo
+            colonna = rand.nextInt(m[0][0]);
+            for (int i=1;i<=livello;i++){
+                //Controllo matrice colpi
+                if (m[i][0] == riga && m[i][1] == colonna){
+                    isGiaPresente=true;
+                    break;
+                }
             }
-        }
-    }while (isGiaPresente);
-    m[livello][0]=riga;
-    m[livello][1]=colonna;
+        }while (isGiaPresente);
+        m[livello][0]=riga;
+        m[livello][1]=colonna;
     }
 }

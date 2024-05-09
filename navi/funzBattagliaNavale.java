@@ -96,7 +96,7 @@ public class funzBattagliaNavale2 {
                         s=s+"\uD83C\uDF0A"+"\t";
                         break;
                     case 1:
-                        s=s+"\uD83D\uDEA2"+"\t";
+                        s=s+"\uD83D\u26F5"+"\t";
                         break;
                     case 2:
                         s=s+"\uD83D\uDCA5"+"\t";

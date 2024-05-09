@@ -1,7 +1,7 @@
 package navi;
 import java.util.Random;
 
-public class funzBattagliaNavale {
+public class funzBattagliaNavale2 {
 
     public static int [][] campoDiBattaglia(int lunghezza){ //Panseri
         int [][] nome = new int [lunghezza][lunghezza];

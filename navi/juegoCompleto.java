@@ -33,6 +33,9 @@ public class juegoCompleto {
                             naviGioc[0]=5;
                             naviGioc[1]=3;
                             naviGioc[2]=2;
+                            naviPc[0]=5;
+                            naviPc[1]=3;
+                            naviPc[2]=2;
                             lunghezza=9;
                             break;
                         case 2:
@@ -86,11 +89,11 @@ public class juegoCompleto {
 
                     //Gioco
                     do {
-                        if (modalita==4){ //Controllo per la modalità a mosse
-                            System.out.println("Mosse rimanenti: "+mosse);
-                            mosse--;
-                        }
                         if (turno%2==0){
+                            if (modalita==4){ //Controllo per la modalità a mosse
+                                System.out.println("Mosse rimanenti: "+mosse);
+                                mosse--;
+                            }
                             //Giocatore
                             System.out.println("Turno del giocatore:");
 
@@ -112,8 +115,7 @@ public class juegoCompleto {
                             }while (cColonna<0 || cColonna>lunghezza-1);
 
                             //Risultato del colpo
-                            risColpo=funzBattagliaNavale2.colpito(mPc,cRiga,cColonna);
-                            switch (risColpo){
+                            switch (funzBattagliaNavale2.colpito(mPc,cRiga,cColonna)){
                                 case 0:
                                     System.out.println("Hai fatto letteralmente un buco nell'acqua");
                                     break;
@@ -132,6 +134,12 @@ public class juegoCompleto {
                             vittoria=funzBattagliaNavale2.vittoria(mPc);
                             if (vittoria)
                                 System.out.println("Hai vinto Capo Di PandaBuy");
+                            if (modalita==4){
+                                if (mosse==0){
+                                    System.out.println("Hai terminato le mosse e Pc vince");
+                                    break;
+                                }
+                            }
                         }else {
                             //Png
                             System.out.println("Turno del Png:");
@@ -143,7 +151,7 @@ public class juegoCompleto {
                             livello++;
 
                             //Risultato del colpo
-                            risColpo=funzBattagliaNavale2.colpito(mPc,cRiga,cColonna);
+                            risColpo=funzBattagliaNavale2.colpito(mGioc,cRiga,cColonna);
                             switch (risColpo){
                                 case 0:
                                     System.out.println("Ha fatto letteralmente un buco nell'acqua");
@@ -163,13 +171,7 @@ public class juegoCompleto {
                             if (vittoria)
                                 System.out.println("Hai perso trimone");
                         }
-                        turno++;
-                        if (modalita==4){
-                            if (mosse==0){
-                                System.out.println("Hai terminato le mosse e Pc vince");
-                                break;
-                            }
-                        }
+                        turno++; //gestisce i turni fra giocatori
                     }while (!vittoria);
                     break;
                 case 1: //Regole
@@ -180,7 +182,7 @@ public class juegoCompleto {
                             "Una nave occupa un certo numero di quadretti adiacenti in linea retta (orizzontale o verticale) sulla tabella. NB: Due navi possono toccarsi.\n" +
                             "In base alla difficoltà ci saranno più o meno navi posizionate, sempre di dimensione 1,2 e massimo 3. Il giocatore di turno \"spara un colpo\" dichiarando un quadretto (per esempio, \"B-5\"). Quando un colpo centra l'ultimo quadretto di una nave non ancora affondata, il giocatore perderà la nave. \n" +
                             "Vince il giocatore che fa affondare tutte le navi dell'avversario per primo.");
-                    System.out.println("Simbologie usate: \n - \uD83C\uDF0A = Mare \n - \uD83D\uDEA2 = Nave \n - \u26F5 = Colpo ad una nave \n - \uD83D\uDD2B = Colpo a vuoto");
+                    System.out.println("Simbologie usate: \n - \uD83C\uDF0A = Mare \n - \u26F5 = Nave \n - \uD83D\uDCA5 = Colpo ad una nave \n - \uD83D\uDD2B = Colpo a vuoto");
                     System.out.println("Essendo che è PvE al ggiocatore verranno proposti due campi uno quello da colpire ed uno il suo.");
                     break;
                 case 2: //Bye bye

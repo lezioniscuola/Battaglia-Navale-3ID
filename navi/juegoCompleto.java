@@ -1,6 +1,6 @@
 package navi;
 import java.util.Scanner;
-
+//Lib=funzBattagliaNavale
 public class juegoCompleto {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);

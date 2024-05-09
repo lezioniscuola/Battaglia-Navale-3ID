@@ -47,7 +47,7 @@ public class funzBattagliaNavale2 {
                     }
                     if (posizionato) { // Se la barca può stare
                         for (int i = 0; i < dimensioneBarca; i++) { // Ciclo per posizionare la barca
-                            matriceComputer[x + i][y] = dimensioneBarca; // Posiziono la barca
+                            matriceComputer[x + i][y] = 1; // Posiziono la barca
                         }
                     }
                 }
@@ -63,7 +63,7 @@ public class funzBattagliaNavale2 {
                     }
                     if (posizionato) { // Se la barca può stare
                         for (int i = 0; i < dimensioneBarca; i++) { // Ciclo per posizionare la barca
-                            matriceComputer[x][y + i] = dimensioneBarca; // Posiziono la barca
+                            matriceComputer[x][y + i] = 1; // Posiziono la barca
                         }
                     }
                 }

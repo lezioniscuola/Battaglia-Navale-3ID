@@ -52,11 +52,5 @@ public class karaje {
                 direzione = (int) (Math.random() * 2);
             }
         }
-        for (int i = 0; i < righe; i++) {
-            for (int j = 0; j < colonne; j++) {
-                System.out.print(matriceComputer[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 }

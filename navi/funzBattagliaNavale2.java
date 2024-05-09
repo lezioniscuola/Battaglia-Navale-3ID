@@ -147,20 +147,20 @@ public class funzBattagliaNavale2 {
         }
         return s;
     }
-    public static int  colpito ( int [] [] m, int x, int y){ //Locatelli
+    public static int colpito ( int [] [] m, int x, int y){ //Locatelli
         int ritorno = 0;
         if (m[x][y] == 0){
             ritorno = 0;
             m[x][y] = 3;
         }
-        if (m[x][y] == 1){
+        else if (m[x][y] == 1){
             ritorno = 1;
             m[x][y] = 2;
         }
-        if (m[x][y] == 2){
+         else if (m[x][y] == 2){
             ritorno = 2;
         }
-        if (m[x][y] == 3){
+        else if (m[x][y] == 3){
             ritorno = 3;
         }
         return ritorno;

@@ -25,7 +25,7 @@ public class juegoCompleto {
                     //Scegliere la modalità prima
                     do {
                         System.out.println("Scegli una tra le modalità proposte:");
-                        System.out.println("1-Facile\n2-Media\n3-Difficile\n4-Difficile^2\n5-Personalizzata");
+                        System.out.println(Colori.AZZURRO + "1-Facile\n" + Colori.VERDE + "2-Media\n" + Colori.GIALLO + "3-Difficile\n" + Colori.ROSSO +"4-Difficile^2\n" + Colori.VIOLA + "5-Personalizzata" + Colori.RESET);
                         modalita=in.nextInt();
                         if (modalita<1||modalita>5)
                             System.out.println("Scegli solo tra 1 e 5");
@@ -137,10 +137,10 @@ public class juegoCompleto {
                             //Controllo dell'eventuale vittoria
                             vittoria=funzBattagliaNavale2.vittoria(mPc);
                             if (vittoria)
-                                System.out.println("Hai vinto " + nome + "!");
+                                System.out.println(Colori.VIOLA + "Hai vinto " + nome + "!" + Colori.RESET);
                             if (modalita==4){
                                 if (mosse==0){
-                                    System.out.println("Hai terminato le mosse e Pc vince");
+                                    System.out.println(Colori.ROSSO + "Hai terminato le mosse e Pc vince" + Colori.RESET);
                                     break;
                                 }
                             }
@@ -158,16 +158,16 @@ public class juegoCompleto {
                             risColpo=funzBattagliaNavale2.colpito(mGioc,cRiga,cColonna);
                             switch (risColpo){
                                 case 0:
-                                    System.out.println("Ha fatto letteralmente un buco nell'acqua");
+                                    System.out.println(Colori.BLU + "Ha fatto letteralmente un buco nell'acqua" + Colori.RESET);
                                     break;
                                 case 1:
-                                    System.out.println("Ha fatto centro");
+                                    System.out.println(Colori.VERDE + "Ha fatto centro" + Colori.RESET);
                                     break;
                                 case 2: //In teoria non servirebbe ma funzione in beta testing quindi per sicurezza lo si lascia
-                                    System.out.println("Ha ricolpito la stessa nave .. Stai attento!");
+                                    System.out.println(Colori.GIALLO +  "Ha ricolpito la stessa nave .. Stai attento!" + Colori.RESET);
                                     break;
                                 case 3: //In teoria non servirebbe ma funzione in beta testing quindi per sicurezza lo si lascia
-                                    System.out.println("Ha ri-bucato l'acqua .. Stai attento!");
+                                    System.out.println(Colori.ROSSO + "Ha ri-bucato l'acqua .. Stai attento!" + Colori.RESET);
                                     break;
                             }
 

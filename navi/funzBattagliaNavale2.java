@@ -1,6 +1,8 @@
 package navi;
 import java.util.Random;
 
+import javafx.scene.paint.Color;
+
 public class funzBattagliaNavale2 {
 
     public static int [][] campoDiBattaglia(int lunghezza){ //Panseri

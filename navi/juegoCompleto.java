@@ -102,7 +102,7 @@ public class juegoCompleto {
                             System.out.println("Turno del giocatore:");
 
                             //Stampa dei campi
-                            System.out.println("Il tuo campo \n"+funzBattagliaNavale2.stampaCampoGiocatore(mGioc)+"\n Appunti sulla missione: \n"+funzBattagliaNavale2.stampaCampoPng(mPc));
+                            System.out.println(Colori.VERDE + "Il tuo campo \n"+funzBattagliaNavale2.stampaCampoGiocatore(mGioc)+ Colori.ROSSO + "\n Appunti sulla missione: \n"+funzBattagliaNavale2.stampaCampoPng(mPc) + Colori.RESET);
 
                             //Inserimento del colpo
                             System.out.println("Inserire le coordinate da colpire; riga:");

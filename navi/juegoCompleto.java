@@ -5,8 +5,12 @@ public class juegoCompleto {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         int scelta;
+        String nome="";
         do {
-            System.out.println("Benvenuto Giovanni ... o come ti chiami, ora devi scegliere una delle opzioni seguenti: ");
+            System.out.println("Benvenuto nella battaglia navale, come ti chiami? ");
+            nome=in.nextLine();
+            System.out.println("Nome registrato: Guglielmo");
+            System.out.println("Benvenuto Guglielmo, ora devi scegliere una delle opzioni seguenti: ");
             System.out.println("0-Gioca\n1-Ripassa le regole\n2-Esci");
             scelta=in.nextInt();
             switch (scelta){
@@ -126,14 +130,14 @@ public class juegoCompleto {
                                     System.out.println("Hai ricolpito la stessa nave .. Stai attento!");
                                     break;
                                 case 3:
-                                    System.out.println("Hai ri-bucato l'acqua .. Stai attento!");
+                                    System.out.println("Hai ri-bucato l'acqua .. Sei proprio un pentito!");
                                     break;
                             }
 
                             //Controllo dell'eventuale vittoria
                             vittoria=funzBattagliaNavale2.vittoria(mPc);
                             if (vittoria)
-                                System.out.println("Hai vinto Capo Di PandaBuy");
+                                System.out.println("Hai vinto " + nome + "!");
                             if (modalita==4){
                                 if (mosse==0){
                                     System.out.println("Hai terminato le mosse e Pc vince");
@@ -169,7 +173,7 @@ public class juegoCompleto {
 
                             vittoria=funzBattagliaNavale2.vittoria(mGioc);
                             if (vittoria)
-                                System.out.println("Hai perso trimone");
+                                System.out.println("Hai perso " + nome + "!");
                         }
                         turno++; //gestisce i turni fra giocatori
                     }while (!vittoria);
@@ -182,8 +186,8 @@ public class juegoCompleto {
                             "Una nave occupa un certo numero di quadretti adiacenti in linea retta (orizzontale o verticale) sulla tabella. NB: Due navi possono toccarsi.\n" +
                             "In base alla difficoltà ci saranno più o meno navi posizionate, sempre di dimensione 1,2 e massimo 3. Il giocatore di turno \"spara un colpo\" dichiarando un quadretto (per esempio, \"B-5\"). Quando un colpo centra l'ultimo quadretto di una nave non ancora affondata, il giocatore perderà la nave. \n" +
                             "Vince il giocatore che fa affondare tutte le navi dell'avversario per primo.");
-                    System.out.println("Simbologie usate: \n - \uD83C\uDF0A = Mare \n - \u26F5 = Nave \n - \uD83D\uDCA5 = Colpo ad una nave \n - \uD83D\uDD2B = Colpo a vuoto");
-                    System.out.println("Essendo che è PvE al ggiocatore verranno proposti due campi uno quello da colpire ed uno il suo.");
+                    System.out.println("Simbologie usate: \n - 🌊 = Mare \n - ⛵ = Nave \n - 💥 = Colpo ad una nave \n - 🔫 = Colpo a vuoto");
+                    System.out.println("Essendo che è PvE al giocatore verranno proposti due campi uno quello da colpire ed uno il suo.");
                     break;
                 case 2: //Bye bye
                     System.out.println("Grazie mille per aver giocato.");

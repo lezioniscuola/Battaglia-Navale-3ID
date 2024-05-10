@@ -121,16 +121,16 @@ public class juegoCompleto {
                             //Risultato del colpo
                             switch (funzBattagliaNavale2.colpito(mPc,cRiga,cColonna)){
                                 case 0:
-                                    System.out.println("Hai fatto letteralmente un buco nell'acqua");
+                                    System.out.println(Colori.BLU + "Hai fatto letteralmente un buco nell'acqua" + Colori.RESET);
                                     break;
                                 case 1:
-                                    System.out.println("Hai fatto centro");
+                                    System.out.println(Colori.VERDE + "Hai fatto centro" + Colori.RESET);
                                     break;
                                 case 2:
-                                    System.out.println("Hai ricolpito la stessa nave .. Stai attento!");
+                                    System.out.println(Colori.GIALLO + "Hai ricolpito la stessa nave .. Stai attento!" + Colori.RESET);
                                     break;
                                 case 3:
-                                    System.out.println("Hai ri-bucato l'acqua .. Sei proprio un pentito!");
+                                    System.out.println(Colori.ROSSO + "Hai ri-bucato l'acqua .. Sei proprio un pentito!" + Colori.RESET);
                                     break;
                             }
 
@@ -201,12 +201,13 @@ public class juegoCompleto {
 }
 /*
  * Colori:
- */BLACK	\u001B[30m	BLACK_BACKGROUND	\u001B[40m
-RED	\u001B[31m	RED_BACKGROUND		\u001B[41m
-GREEN	\u001B[32m	GREEN_BACKGROUND	\u001B[42m
-YELLOW	\u001B[33m	YELLOW_BACKGROUND	\u001B[43m
-BLUE	\u001B[34m	BLUE_BACKGROUND		\u001B[44m
-PURPLE	\u001B[35m	PURPLE_BACKGROUND	\u001B[45m
-CYAN	\u001B[36m	CYAN_BACKGROUND		\u001B[46m
-WHITE	\u001B[37m	WHITE_BACKGROUND	\u001B[47m
-\033[
+ * Colori.RESET
+ * Colori.NERO
+ * Colori.ROSSO
+ * Colori.VERDE
+ * Colori.GIALLO
+ * Colori.BLU
+ * Colori.VIOLA
+ * Colori.AZZURRO
+ * Colori.BIANCO
+*/

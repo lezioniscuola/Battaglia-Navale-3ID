@@ -94,19 +94,19 @@ public class funzBattagliaNavale2 {
                 switch (matrice[i][j]){
                     case 0:
                         // s=s+"\uD83C\uDF0A"+"\t";
-                        s=s+"🌊";
+                        s=s+"🌊\t";
                         break;
                     case 1:
                         // s=s+"\u26F5"+"\t";
-                        s=s+"⛵";
+                        s=s+"⛵\t";
                         break;
                     case 2:
                         // s=s+"\uD83D\uDCA5"+"\t";
-                        s=s+"💥";
+                        s=s+"💥\t";
                         break;
                     case 3:
                         //s=s+"\uD83D\uDD2B"+"\t";            //   \t = spazio           \n = va a capo
-                        s=s+"🔫";
+                        s=s+"🔫\t";
                         break;
                     default:
                         s=s+matrice[i][j]+"\t";

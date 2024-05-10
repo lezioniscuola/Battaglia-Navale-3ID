@@ -4,80 +4,85 @@ import java.util.Scanner;
 public class juegoCompleto {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        int scelta;
-        String nome="";
+        int opzioneSceltaMenu;
+        String nome;
         do {
-            System.out.println("Benvenuto nella battaglia navale, come ti chiami? ");
+            System.out.println("Benvenuto nella battaglia navale, inserire di seguito il tuo nome: ");
             nome=in.nextLine();
-            System.out.println("Nome registrato: Guglielmo");
-            System.out.println("Benvenuto Guglielmo, ora devi scegliere una delle opzioni seguenti: ");
+            System.out.println("Benvenuto"+nome+", ora devi scegliere una delle opzioni seguenti: ");
             System.out.println("0-Gioca\n1-Ripassa le regole\n2-Esci");
-            scelta=in.nextInt();
-            switch (scelta){
+            opzioneSceltaMenu=in.nextInt();
+            switch (opzioneSceltaMenu){
                 case 0: //Gioco
-                    //Variabili d'appoggio
-                    boolean vittoria;
-                    int turno=0, cRiga,cColonna,risColpo,lunghezza = 0,livello=1,modalita,mosse=10;
-                    int [][] colpiPng=new int [70][2];
-                    int [] naviGioc=new int[3];
-                    int [] naviPc=new int[3];
+                    //Variabili utilizzate
+                    boolean isVittoriaPresente;
+                    int turnoDiGioco=0,rigaColpo,colonnaColpo,dimensioneCampoDiGioco=0,livello=1 /*Da eliminare*/,difficoltaDiGioco,mosseRimanentiOpzionali=10;
+                    int [] colpoDaEffetuare=new int[2];
+                    int [][] colpiPng=new int [70][2]; //Da eliminare
+                    int [] naviGioc=new int[3]; //Navi in inserimento nel campo del Giocatore
+                    int [] naviPc=new int[3]; //Navi in inserimento nel campo del Pc
 
                     //Scegliere la modalità prima
                     do {
                         System.out.println("Scegli una tra le modalità proposte:");
                         System.out.println(Colori.AZZURRO + "1-Facile\n" + Colori.VERDE + "2-Media\n" + Colori.GIALLO + "3-Difficile\n" + Colori.ROSSO +"4-Difficile^2\n" + Colori.VIOLA + "5-Personalizzata" + Colori.RESET);
-                        modalita=in.nextInt();
-                        if (modalita<1||modalita>5)
-                            System.out.println("Scegli solo tra 1 e 5");
-                    }while (modalita<1||modalita>5);
-                    System.out.println("Benvenuto nel gioco, iniziamo:");
-                    switch (modalita){
+                        difficoltaDiGioco=in.nextInt();
+                        if (difficoltaDiGioco<1||difficoltaDiGioco>5)
+                            System.out.println("Scegli solo tra 1 e 5, grazie.");
+                    }while (difficoltaDiGioco<1||difficoltaDiGioco>5);
+                    System.out.println(Colori.ROSSO+"Iniziamo:"+Colori.RESET);
+                    switch (difficoltaDiGioco){
                         case 1:
-                            System.out.println("Nella modalità facile ci saranno 5 barche (dim. 1),3 navi (dim. 2),2 sottomarini (dim. 3).\n\nIl campo sarà invece 9x9");
+                            System.out.println("Nella modalità facile ci saranno 5 barche (dim. 1),3 navi (dim. 2),2 sottomarini (dim. 3).\n\nIl campo sarà invece 9x9. " +
+                                    "Per eventuali dubbi consulta regolamento o documentazione ufficiale.");
                             naviGioc[0]=5;
                             naviGioc[1]=3;
                             naviGioc[2]=2;
                             naviPc[0]=5;
                             naviPc[1]=3;
                             naviPc[2]=2;
-                            lunghezza=9;
+                            dimensioneCampoDiGioco=9;
                             break;
                         case 2:
-                            System.out.println("Nella modalità media ci saranno 5 barche (dim. 1),3 navi (dim. 2),3 sottomarini (dim. 3) per te. Il pc ne avrà meno, ma il numero sta te a scoprirlo.\n\nIl campo sarà invece 11x11");
+                            System.out.println("Nella modalità media ci saranno 5 barche (dim. 1),3 navi (dim. 2),3 sottomarini (dim. 3) per te. Il pc ne avrà meno, ma il numero sta te a scoprirlo.\n\nIl campo sarà invece 11x11." +
+                                    "Per eventuali dubbi consulta regolamento o documentazione ufficiale.");
                             naviGioc[0]=5;
                             naviGioc[1]=3;
                             naviGioc[2]=3;
                             naviPc[0]=3;
                             naviPc[1]=2;
                             naviPc[2]=2;
-                            lunghezza=11;
+                            dimensioneCampoDiGioco=11;
                             break;
                         case 3:
-                            System.out.println("Nella modalità difficile ci saranno 6 barche (dim. 1),1 navi (dim. 2),2 sottomarini (dim. 3) per te. Il pc ne avrà meno, ma il numero sta te a scoprirlo.\n\nIl campo sarà invece 9x9");
+                            System.out.println("Nella modalità difficile ci saranno 6 barche (dim. 1),1 navi (dim. 2),2 sottomarini (dim. 3) per te. Il pc ne avrà meno, ma il numero sta te a scoprirlo.\n\nIl campo sarà invece 12x12." +
+                                    "Per eventuali dubbi consulta regolamento o documentazione ufficiale.");
                             naviGioc[0]=6;
                             naviGioc[1]=1;
                             naviGioc[2]=2;
                             naviPc[0]=3;
                             naviPc[1]=2;
                             naviPc[2]=2; //Se il giocatore ha più navi ci sarà più possibilità di subire danno dal colpo
-                            lunghezza=9;
+                            dimensioneCampoDiGioco=12;
                             break;
                         case 4:
-                            System.out.println("Nella modalità difficile ci saranno 1 barca (dim. 1),1 nave (dim. 2),1 sottomarino (dim. 3) per te. Il pc ne avrà 1.\n\nIl campo sarà invece 13x13");
+                            System.out.println("Nella modalità difficile ci saranno 1 barca (dim. 1),1 nave (dim. 2),1 sottomarino (dim. 3) per te. Il pc ne avrà 1.\n\nIl campo sarà invece 13x13." +
+                                    "Per eventuali dubbi consulta regolamento o documentazione ufficiale.");
                             naviGioc[0]=1;
                             naviGioc[1]=1;
                             naviGioc[2]=1;
                             naviPc[0]=1;
-                            lunghezza=13;
-                            System.out.println("Ah scusa ... mi sono dimenticato di dirti che tu hai solo 10 colpi massimi.");
+                            dimensioneCampoDiGioco=13;
+                            System.out.println(Colori.ROSSO+"RICORDA: In questa modalità come già detto nelle regole hai solo 10 mosse possibili."+Colori.RESET);
                             break;
                         case 5:
-                            System.out.println("Inanzitutto decidi la lunghezza del lato del campo: (Deve essere >=9)");
+                            System.out.println("Decidi la dimensione del campo,specificando la specifica dimensione che il lato assumerà: (Deve essere >=9)");
                             do {
-                                lunghezza=in.nextInt();
-                                if (lunghezza<9)
-                                    System.out.println("Ci sei?");
-                            }while (lunghezza<9);
+                                dimensioneCampoDiGioco=in.nextInt();
+                                if (dimensioneCampoDiGioco<9)
+                                    System.out.println("Ricorda la grandezza per consentire un gioco ottimale deve essere >=9.");
+                            }while (dimensioneCampoDiGioco<9);
+                            System.out.println("La quantità di navi è corrispondente a quella della modalità facile.");
                             naviGioc[0]=5;
                             naviGioc[1]=3;
                             naviGioc[2]=2;
@@ -87,102 +92,96 @@ public class juegoCompleto {
                             break;
                     }
                     //Inizio
-                    colpiPng[0][0]=lunghezza; //Nella prima cella inserisce la lunghezza della matrice
+                    colpiPng[0][0]=dimensioneCampoDiGioco; //Nella prima cella inserisce la lunghezza della matrice
+                    //Eliminare
 
                     //Creazione dei campi
-                    int [][] mPc=funzBattagliaNavale2.campoDiBattaglia(lunghezza); //Campo del Pc
-                    int [][] mGioc=funzBattagliaNavale2.campoDiBattaglia(lunghezza); //Campo del Giocatore
+                    int [][] campoPc=funzBattagliaNavale2.campoDiBattaglia(dimensioneCampoDiGioco); //Campo del Pc
+                    int [][] campoGiocatore=funzBattagliaNavale2.campoDiBattaglia(dimensioneCampoDiGioco); //Campo del Giocatore
 
                     //Inserimento delle navi
-                    funzBattagliaNavale2.posizionamentoTotale(mPc,naviPc);
-                    funzBattagliaNavale2.posizionamentoTotale(mGioc,naviGioc);
+                    funzBattagliaNavale2.posizionamentoTotale(campoPc,naviPc);
+                    funzBattagliaNavale2.posizionamentoTotale(campoGiocatore,naviGioc);
 
                     //Gioco
                     do {
-                        if (turno%2==0){
-                            if (modalita==4){ //Controllo per la modalità a mosse
-                                System.out.println("Mosse rimanenti: "+mosse);
-                                mosse--;
+                        if (turnoDiGioco==0){
+                            turnoDiGioco=1; //Indica che il prossimo turno sarà del pc
+                            if (difficoltaDiGioco==4){ //Controllo per la modalità a mosse
+                                System.out.println("Mosse rimanenti: "+mosseRimanentiOpzionali);
+                                mosseRimanentiOpzionali--;
                             }
                             //Giocatore
                             System.out.println("Turno del giocatore:");
 
                             //Stampa dei campi
-                            System.out.println(Colori.VERDE + "Il tuo campo \n"+funzBattagliaNavale2.stampaCampoGiocatore(mGioc)+ Colori.ROSSO + "\n Appunti sulla missione: \n"+funzBattagliaNavale2.stampaCampoPng(mPc) + Colori.RESET);
+                            System.out.println(Colori.VERDE + "Il tuo campo \n"+funzBattagliaNavale2.stampaCampoGiocatore(campoGiocatore)+ Colori.ROSSO + "\n Appunti sulla missione: \n"+funzBattagliaNavale2.stampaCampoPc(campoPc) + Colori.RESET);
 
                             //Inserimento del colpo
-                            System.out.println("Inserire le coordinate da colpire; riga:");
+                            System.out.println("Inserire le coordinate da colpire ---> riga:");
                             do {
-                                cRiga=in.nextInt();
-                                if (cRiga<0 || cRiga>lunghezza-1)
-                                    System.out.println("Ci sei?");
-                            }while (cRiga<0 || cRiga>lunghezza-1);
-                            System.out.println("Inserire le coordinate da colpire; colonna:");
+                                rigaColpo=in.nextInt();
+                                if (rigaColpo<0 || rigaColpo>dimensioneCampoDiGioco-1)
+                                    System.out.println("Inserire un valore valido.");
+                            }while (rigaColpo<0 || rigaColpo>dimensioneCampoDiGioco-1);
+                            System.out.println("Inserire le coordinate da colpire ---> colonna:");
                             do {
-                                cColonna=in.nextInt();
-                                if (cColonna<0 || cColonna>lunghezza-1)
+                                colonnaColpo=in.nextInt();
+                                if (colonnaColpo<0 || colonnaColpo>dimensioneCampoDiGioco-1)
                                     System.out.println("Ci sei?");
-                            }while (cColonna<0 || cColonna>lunghezza-1);
+                            }while (colonnaColpo<0 || colonnaColpo>dimensioneCampoDiGioco-1);
 
                             //Risultato del colpo
-                            switch (funzBattagliaNavale2.colpito(mPc,cRiga,cColonna)){
+                            switch (funzBattagliaNavale2.colpito(campoPc,rigaColpo,colonnaColpo)){
                                 case 0:
-                                    System.out.println(Colori.BLU + "Hai fatto letteralmente un buco nell'acqua" + Colori.RESET);
+                                    System.out.println(Colori.BLU + "Non hai colpito nulla!" + Colori.RESET);
                                     break;
                                 case 1:
-                                    System.out.println(Colori.VERDE + "Hai fatto centro" + Colori.RESET);
+                                    System.out.println(Colori.VERDE + "Hai fatto centro!" + Colori.RESET);
                                     break;
                                 case 2:
                                     System.out.println(Colori.GIALLO + "Hai ricolpito la stessa nave .. Stai attento!" + Colori.RESET);
                                     break;
                                 case 3:
-                                    System.out.println(Colori.ROSSO + "Hai ri-bucato l'acqua .. Sei proprio un pentito!" + Colori.RESET);
+                                    System.out.println(Colori.ROSSO + "Attenzione qui non c'era già nulla!" + Colori.RESET);
                                     break;
                             }
 
                             //Controllo dell'eventuale vittoria
-                            vittoria=funzBattagliaNavale2.vittoria(mPc);
-                            if (vittoria)
+                            isVittoriaPresente=funzBattagliaNavale2.vittoria(campoPc);
+                            if (isVittoriaPresente)
                                 System.out.println(Colori.VIOLA + "Hai vinto " + nome + "!" + Colori.RESET);
-                            if (modalita==4){
-                                if (mosse==0){
-                                    System.out.println(Colori.ROSSO + "Hai terminato le mosse e Pc vince" + Colori.RESET);
+                            if (difficoltaDiGioco==4){
+                                if (mosseRimanentiOpzionali==0){
+                                    System.out.println(Colori.ROSSO + "Hai terminato le mosse, mi spiace." + Colori.RESET);
                                     break;
                                 }
                             }
                         }else {
-                            //Png
-                            System.out.println("Turno del Png:");
-
+                            turnoDiGioco=0;//Indica che il prossimo turno sarà del giocatore
+                            System.out.println("Esito turno avversario:");
                             //Inserimento del colpo
-                            funzBattagliaNavale2.colpoPng(colpiPng,livello);
-                            cRiga=colpiPng[livello][0];
-                            cColonna=colpiPng[livello][1];
-                            livello++;
+                            //Versione TEMPORANEA
+                            funzBattagliaNavale2.colpoPng1(colpiPng,livello); //Cambiare
+                            rigaColpo=colpiPng[livello][0]; //Cambiare
+                            colonnaColpo=colpiPng[livello][1]; //Cambiare
+                            livello++; //Cambiare
 
                             //Risultato del colpo
-                            risColpo=funzBattagliaNavale2.colpito(mGioc,cRiga,cColonna);
-                            switch (risColpo){
+                            switch (funzBattagliaNavale2.colpito(campoGiocatore,rigaColpo,colonnaColpo)){
                                 case 0:
-                                    System.out.println(Colori.BLU + "Ha fatto letteralmente un buco nell'acqua" + Colori.RESET);
+                                    System.out.println(Colori.BLU + "L'avversario non ha colpito nulla!" + Colori.RESET);
                                     break;
                                 case 1:
-                                    System.out.println(Colori.VERDE + "Ha fatto centro" + Colori.RESET);
-                                    break;
-                                case 2: //In teoria non servirebbe ma funzione in beta testing quindi per sicurezza lo si lascia
-                                    System.out.println(Colori.GIALLO +  "Ha ricolpito la stessa nave .. Stai attento!" + Colori.RESET);
-                                    break;
-                                case 3: //In teoria non servirebbe ma funzione in beta testing quindi per sicurezza lo si lascia
-                                    System.out.println(Colori.ROSSO + "Ha ri-bucato l'acqua .. Stai attento!" + Colori.RESET);
+                                    System.out.println(Colori.VERDE + "ATTENZIONE: Nave colpita" + Colori.RESET);
                                     break;
                             }
 
-                            vittoria=funzBattagliaNavale2.vittoria(mGioc);
-                            if (vittoria)
+                            isVittoriaPresente=funzBattagliaNavale2.vittoria(campoGiocatore);
+                            if (isVittoriaPresente)
                                 System.out.println("Hai perso " + nome + "!");
                         }
-                        turno++; //gestisce i turni fra giocatori
-                    }while (!vittoria);
+                    }while (!isVittoriaPresente);
                     break;
                 case 1: //Regole
                     System.out.println("Regolamento della battaglia navale (Classica):");
@@ -195,25 +194,13 @@ public class juegoCompleto {
                     System.out.println("Simbologie usate: \n - 🌊 = Mare \n - ⛵ = Nave \n - 💥 = Colpo ad una nave \n - 🔫 = Colpo a vuoto");
                     System.out.println("Essendo che è PvE al giocatore verranno proposti due campi uno quello da colpire ed uno il suo.");
                     break;
-                case 2: //Bye bye
+                case 2: //Termine di tutto
                     System.out.println("Grazie mille per aver giocato.");
                     break;
                 default:
                     System.out.println("Scegli solo una delle opzioni proposte!");
             }
-        }while (scelta!=2);
+        }while (opzioneSceltaMenu!=2);
         in.close();
     }
 }
-/*
- * Colori:
- * Colori.RESET
- * Colori.NERO
- * Colori.ROSSO
- * Colori.VERDE
- * Colori.GIALLO
- * Colori.BLU
- * Colori.VIOLA
- * Colori.AZZURRO
- * Colori.BIANCO
- */

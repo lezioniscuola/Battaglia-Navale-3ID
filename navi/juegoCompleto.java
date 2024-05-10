@@ -78,6 +78,12 @@ public class juegoCompleto {
                                 if (lunghezza<9)
                                     System.out.println("Ci sei?");
                             }while (lunghezza<9);
+                            naviGioc[0]=5;
+                            naviGioc[1]=3;
+                            naviGioc[2]=2;
+                            naviPc[0]=5;
+                            naviPc[1]=3;
+                            naviPc[2]=2;
                             break;
                     }
                     //Inizio

@@ -192,5 +192,6 @@ public class juegoCompleto {
                     System.out.println("Scegli solo una delle opzioni proposte!");
             }
         }while (scelta!=2);
+        in.close();
     }
 }

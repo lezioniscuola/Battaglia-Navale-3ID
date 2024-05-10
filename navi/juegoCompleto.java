@@ -199,3 +199,6 @@ public class juegoCompleto {
         in.close();
     }
 }
+/*
+ * Colori:
+ */

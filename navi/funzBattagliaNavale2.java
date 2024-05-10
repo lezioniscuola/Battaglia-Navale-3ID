@@ -89,7 +89,10 @@ public class funzBattagliaNavale2 {
         s=s+"\n";
         // for che stampa la colonna verticale degli indici più il campo
         for( int i = 0; i < matrice.length; i++){
-            s=s+i + " | ";
+            if (i>=10)
+                s=s+i + "| ";
+            else
+                s=s+i + " | ";
             for ( int j = 0; j < matrice[i].length; j++){
                 switch (matrice[i][j]){
                     case 0:
@@ -126,7 +129,10 @@ public class funzBattagliaNavale2 {
         s=s+"\n";
         // for che stampa la colonna verticale degli indici più il campo
         for( int i = 0; i < matrice.length; i++){
-            s=s+i + " | ";
+            if (i>=10)
+                s=s+i + "| ";
+            else
+                s=s+i + " | ";
             for ( int j = 0; j < matrice[i].length; j++){
                 switch (matrice[i][j]){
                     case 0:
@@ -134,10 +140,10 @@ public class funzBattagliaNavale2 {
                         s=s+"🌊\t";
                         break;
                     case 2:
-                        s=s+"⛵\t";
+                        s=s+"💥\t";
                         break;
                     case 3:
-                        s=s+"💥\t";
+                        s=s+"🔫\t";
                         break;
                     default:
                         s=s+matrice[i][j]+"\t";
@@ -157,7 +163,7 @@ public class funzBattagliaNavale2 {
             ritorno = 1;
             m[x][y] = 2;
         }
-         else if (m[x][y] == 2){
+        else if (m[x][y] == 2){
             ritorno = 2;
         }
         else if (m[x][y] == 3){

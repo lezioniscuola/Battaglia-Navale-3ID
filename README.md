@@ -1,5 +1,15 @@
 # Battaglia-Navale-3ID
 
+**How to Use:**
+>   1) Scarica la cartella `navi`
+>   2) Utilizzando un compilatore a tua scelta (Es. IntelliJ Idea) esegui `juegoCompleto.java`
+>   3) Ora puoi seguire le istruzioni presenti nella console 
+
+
+
+
+
+
 **Appunti: Gruppo 1**
 
 	- Realizzazione della battaglia navale contro un computer.

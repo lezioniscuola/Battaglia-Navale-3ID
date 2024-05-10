@@ -3,42 +3,39 @@ import java.util.Random;
 
 public class funzBattagliaNavale2 {
 
-    public static int [][] campoDiBattaglia(int lunghezza){ //Panseri
-        int [][] nome = new int [lunghezza][lunghezza];
-        return nome;
+    public static int [][] campoDiBattaglia(int dimensioneCampoDiGioco){ //Panseri
+        int [][] campoDaAssegnare = new int [dimensioneCampoDiGioco][dimensioneCampoDiGioco];
+        return campoDaAssegnare; //Il campo potrà essere assegnato sia a pc che a giocatore
     }
-    public static void posizionamentoTotale(int [][] m,int [] navi){ //D'Ortenzio
+    public static void posizionamentoTotale(int [][] campoGiocatoreOPc,int [] navi){ //D'Ortenzio
         //La funzione si baserà sul gestire le navi da inserire che verranno inserite dalla funzione: posizionamento() di Karaje
         //N° navi in base al dichiarato nel Main
-        int inserite,dim=0; //Navi totali da inserire (Per comodità e compatibilità con una possibile estensione che potrà decidere le quantità di navi)
+        int naviInserite,dimensioneNave=0; //Navi totali da inserire (Per comodità e compatibilità con una possibile estensione che potrà decidere le quantità di navi)
         for (int i=1; i<=navi.length;i++){
-            inserite=0;
-            dim++;
-            while (inserite<navi[i-1]){
-                posizionamento(m,dim);
-                inserite++;
+            naviInserite=0;
+            dimensioneNave++;
+            while (naviInserite<navi[i-1]){
+                posizionamento(campoGiocatoreOPc,dimensioneNave);
+                naviInserite++;
             }
         }
         //Terminato il ciclo sarà completato l'insermento auotmatico, grazie alla collaborazione tra le 2 funzioni.
     }
-    public static void posizionamento(int[][] matriceComputer, int dimensioneBarca) { //Karaje
-        int righe = matriceComputer.length; // Ottengo il numero di righe della matrice
-        int colonne = matriceComputer[0].length; // Ottengo il numero di colonne della matrice
+    public static void posizionamento(int[][] campoGiocatoreOPc, int dimensioneNave) { //Karaje
+        int righe = campoGiocatoreOPc.length; // Ottengo il numero di righe della matrice
+        int colonne = campoGiocatoreOPc[0].length; // Ottengo il numero di colonne della matrice
         int x = (int) (Math.random() * righe); // Genero un numero casuale per la coordinata x
         int y = (int) (Math.random() * colonne); // Genero un numero casuale per la coordinata y
         int direzione = (int) (Math.random() * 2); // Genero un numero casuale per la direzione
         boolean posizionato = false; // Variabile booleana per controllare se la barca è stata posizionata
-        if (dimensioneBarca >= 4 || dimensioneBarca < 1) {
+        if (dimensioneNave >= 4 || dimensioneNave < 1) {
             throw new IllegalArgumentException("Dimensione barca non valida"); // In caso in cui la dimensione della barca non è valida si lancia un errore
-        }
-        if (dimensioneBarca > righe || dimensioneBarca > colonne) {
-            throw new IllegalArgumentException("La barca non può stare nel campo di battaglia"); // In caso in cui la barca non può stare nel campo si lancia un errore
         }
         while (!posizionato) { // Ciclo finché la barca non è posizionata
             if (direzione == 0) { // Se la direzione è 0
-                if (x + dimensioneBarca < righe) { // Se la barca può stare nella matrice
-                    for (int i = 0; i < dimensioneBarca; i++) { // Ciclo per controllare se la barca può stare nella matrice
-                        if (matriceComputer[x + i][y] == 0) { // Se la cella è vuota
+                if (x + dimensioneNave < righe) { // Se la barca può stare nella matrice
+                    for (int i = 0; i < dimensioneNave; i++) { // Ciclo per controllare se la barca può stare nella matrice
+                        if (campoGiocatoreOPc[x + i][y] == 0) { // Se la cella è vuota
                             posizionato = true; // La barca può stare
                         } else { // Se la cella non è vuota
                             posizionato = false; // La barca non può stare
@@ -46,15 +43,15 @@ public class funzBattagliaNavale2 {
                         }
                     }
                     if (posizionato) { // Se la barca può stare
-                        for (int i = 0; i < dimensioneBarca; i++) { // Ciclo per posizionare la barca
-                            matriceComputer[x + i][y] = 1; // Posiziono la barca
+                        for (int i = 0; i < dimensioneNave; i++) { // Ciclo per posizionare la barca
+                            campoGiocatoreOPc[x + i][y] = 1; // Posiziono la barca
                         }
                     }
                 }
             } else { // Se la direzione è 1
-                if (y + dimensioneBarca < colonne) { // Se la barca può stare nella matrice
-                    for (int i = 0; i < dimensioneBarca; i++) { // Ciclo per controllare se la barca può stare nella matrice
-                        if (matriceComputer[x][y + i] == 0) { // Se la cella è vuota
+                if (y + dimensioneNave < colonne) { // Se la barca può stare nella matrice
+                    for (int i = 0; i < dimensioneNave; i++) { // Ciclo per controllare se la barca può stare nella matrice
+                        if (campoGiocatoreOPc[x][y + i] == 0) { // Se la cella è vuota
                             posizionato = true; // La barca può stare
                         } else {
                             posizionato = false; // La barca non può stare
@@ -62,8 +59,8 @@ public class funzBattagliaNavale2 {
                         }
                     }
                     if (posizionato) { // Se la barca può stare
-                        for (int i = 0; i < dimensioneBarca; i++) { // Ciclo per posizionare la barca
-                            matriceComputer[x][y + i] = 1; // Posiziono la barca
+                        for (int i = 0; i < dimensioneNave; i++) { // Ciclo per posizionare la barca
+                            campoGiocatoreOPc[x][y + i] = 1; // Posiziono la barca
                         }
                     }
                 }
@@ -75,113 +72,110 @@ public class funzBattagliaNavale2 {
             }
         }
     }
-    public static String stampaCampoGiocatore(int [][] matrice){ //Viapiana
-        String s="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
+    public static String stampaCampoGiocatore(int [][] campoGiocatore){ //Viapiana
+        String stringaCampoGiocatore="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
         //Stampa della riga di indici superiori
-        for (int k=0;k<matrice[0].length;k++){
-            s=s+k+"\t";
+        for (int k=0;k<campoGiocatore[0].length;k++){
+            stringaCampoGiocatore=stringaCampoGiocatore+k+"\t";
         }
-        s=s+"\n";
+        stringaCampoGiocatore=stringaCampoGiocatore+"\n";
         //Stampa di una riga di separazione
-        for (int p=-1;p<matrice[0].length;p++){ //p=-1 perchè conta anche la prima riga di indici verticali
-            s=s+"_"+"\t";
+        for (int p=-1;p<campoGiocatore[0].length;p++){ //p=-1 perchè conta anche la prima riga di indici verticali
+            stringaCampoGiocatore=stringaCampoGiocatore+"_"+"\t";
         }
-        s=s+"\n";
+        stringaCampoGiocatore=stringaCampoGiocatore+"\n";
         // for che stampa la colonna verticale degli indici più il campo
-        for( int i = 0; i < matrice.length; i++){
+        for( int i = 0; i < campoGiocatore.length; i++){
             if (i>=10)
-                s=s+i + "| ";
+                stringaCampoGiocatore=stringaCampoGiocatore+i + "| ";
             else
-                s=s+i + " | ";
-            for ( int j = 0; j < matrice[i].length; j++){
-                switch (matrice[i][j]){
+                stringaCampoGiocatore=stringaCampoGiocatore+i + " | ";
+            for ( int j = 0; j < campoGiocatore[i].length; j++){
+                switch (campoGiocatore[i][j]){
                     case 0:
-                        s=s+"🌊\t"; // \t = spazio
+                        stringaCampoGiocatore=stringaCampoGiocatore+"🌊\t"; // \t = spazio
                         break;
                     case 1:
-                        s=s+"⛵\t";
+                        stringaCampoGiocatore=stringaCampoGiocatore+"⛵\t";
                         break;
                     case 2:
-                        s=s+"💥\t";
+                        stringaCampoGiocatore=stringaCampoGiocatore+"💥\t";
                         break;
                     case 3:
-                        s=s+"🔫\t";
+                        stringaCampoGiocatore=stringaCampoGiocatore+"🔫\t";
                         break;
                     default:
-                        s=s+matrice[i][j]+"\t";
+                        stringaCampoGiocatore=stringaCampoGiocatore+campoGiocatore[i][j]+"\t";
                 }
             }
-            s=s+"\n";
+            stringaCampoGiocatore=stringaCampoGiocatore+"\n";
         }
-        return s;
+        return stringaCampoGiocatore;
     }
-    public static String stampaCampoPng(int [][] matrice){ //Viapiana
-        String s="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
+    public static String stampaCampoPc(int [][] campoPc){ //Viapiana
+        String stringaCampoPc="    "; //Stringa inizializzata con lo spazio che occuperà la colonna verticale di indici e separatori
         //Stampa della riga di indici superiori
-        for (int k=0;k<matrice[0].length;k++){
-            s=s+k+"\t";
+        for (int k=0;k<campoPc[0].length;k++){
+            stringaCampoPc=stringaCampoPc+k+"\t";
         }
-        s=s+"\n";
+        stringaCampoPc=stringaCampoPc+"\n";
         //Stampa di una riga di separazione
-        for (int p=-1;p<matrice[0].length;p++){ //p=-1 perchè conta anche la prima riga di indici verticali
-            s=s+"_"+"\t";
+        for (int p=-1;p<campoPc[0].length;p++){ //p=-1 perchè conta anche la prima riga di indici verticali
+            stringaCampoPc=stringaCampoPc+"_"+"\t";
         }
-        s=s+"\n";
+        stringaCampoPc=stringaCampoPc+"\n";
         // for che stampa la colonna verticale degli indici più il campo
-        for( int i = 0; i < matrice.length; i++){
+        for( int i = 0; i < campoPc.length; i++){
             if (i>=10)
-                s=s+i + "| ";
+                stringaCampoPc=stringaCampoPc+i + "| ";
             else
-                s=s+i + " | ";
-            for ( int j = 0; j < matrice[i].length; j++){
-                switch (matrice[i][j]){
+                stringaCampoPc=stringaCampoPc+i + " | ";
+            for ( int j = 0; j < campoPc[i].length; j++){
+                switch (campoPc[i][j]){
                     case 0:
                     case 1:
-                        s=s+"🌊\t";
+                        stringaCampoPc=stringaCampoPc+"🌊\t";
                         break;
                     case 2:
-                        s=s+"💥\t";
+                        stringaCampoPc=stringaCampoPc+"💥\t";
                         break;
                     case 3:
-                        s=s+"🔫\t";
+                        stringaCampoPc=stringaCampoPc+"🔫\t";
                         break;
                     default:
-                        s=s+matrice[i][j]+"\t";
+                        stringaCampoPc=stringaCampoPc+campoPc[i][j]+"\t";
                 }
             }
-            s=s+"\n";
+            stringaCampoPc=stringaCampoPc+"\n";
         }
-        return s;
+        return stringaCampoPc;
     }
-    public static int colpito ( int [] [] m, int x, int y){ //Locatelli
+    public static int colpito ( int [][] campoGiocatoreOPc, int x, int y) { //Locatelli
         int ritorno = 0;
-        if (m[x][y] == 0){
+        if (campoGiocatoreOPc[x][y] == 0) {
             ritorno = 0;
-            m[x][y] = 3;
-        }
-        else if (m[x][y] == 1){
+            campoGiocatoreOPc[x][y] = 3;
+        } else if (campoGiocatoreOPc[x][y] == 1) {
             ritorno = 1;
-            m[x][y] = 2;
-        }
-        else if (m[x][y] == 2){
+            campoGiocatoreOPc[x][y] = 2;
+        } else if (campoGiocatoreOPc[x][y] == 2) {
             ritorno = 2;
-        }
-        else if (m[x][y] == 3){
+        } else if (campoGiocatoreOPc[x][y] == 3) {
             ritorno = 3;
         }
         return ritorno;
     }
-    public static boolean vittoria(int[][] matrice) { //Seghezzi
-        for(int i = 0; i < matrice.length; i++) {
-            for(int j = 0; j < matrice[0].length; j++) {
-                if (matrice[i][j] == 1) {
+        public static boolean vittoria(int[][] campoGiocatoreOPc) { //Seghezzi
+        for(int i = 0; i < campoGiocatoreOPc.length; i++) {
+            for(int j = 0; j < campoGiocatoreOPc[0].length; j++) {
+                if (campoGiocatoreOPc[i][j] == 1) {
                     return false;
                 }
             }
         }
         return true;
     }
-    public static void colpoPng (int [][] m, int livello) { //Rocchi
+    public static void colpoPng1 (int [][] m, int livello) { //Rocchi
         //matrice = colpi livello = numeri di colpi inseriti
 
         int riga,colonna;
@@ -201,5 +195,20 @@ public class funzBattagliaNavale2 {
         }while (isGiaPresente);
         m[livello][0]=riga;
         m[livello][1]=colonna;
+    }
+    public static void colpoPc (int [][] campoGiocatore, int dimensioneCampoDiGioco, int [] colpoDaEffettuare) { //Rocchi Nuova Versione da testare
+        int rigaColpo,colonnaColpo;
+        boolean isGiaColpito=false;
+        do {
+            // Generazione di due numeri casuali compresi tra 0 e n
+            rigaColpo = (int) (Math.random() * dimensioneCampoDiGioco);
+            colonnaColpo = (int) (Math.random() * dimensioneCampoDiGioco);
+            //Verifica di cosa contiene la casella della matrice del campo
+            if (campoGiocatore[rigaColpo][colonnaColpo] == 2 || campoGiocatore[rigaColpo][colonnaColpo] == 3){
+                isGiaColpito=true;
+            }
+        }while (isGiaColpito);
+        colpoDaEffettuare[0]=rigaColpo;
+        colpoDaEffettuare[1]=colonnaColpo;
     }
 }

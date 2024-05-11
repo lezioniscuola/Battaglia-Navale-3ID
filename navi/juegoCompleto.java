@@ -16,9 +16,8 @@ public class juegoCompleto {
                 case 0: //Gioco
                     //Variabili utilizzate
                     boolean isVittoriaPresente;
-                    int turnoDiGioco=0,rigaColpo,colonnaColpo,dimensioneCampoDiGioco=0,livello=1 /*Da eliminare*/,difficoltaDiGioco,mosseRimanentiOpzionali=10;
+                    int turnoDiGioco=0,rigaColpo,colonnaColpo,dimensioneCampoDiGioco=0,difficoltaDiGioco,mosseRimanentiOpzionali=10;
                     int [] colpoDaEffetuare=new int[2];
-                    int [][] colpiPng=new int [70][2]; //Da eliminare
                     int [] naviGioc=new int[3]; //Navi in inserimento nel campo del Giocatore
                     int [] naviPc=new int[3]; //Navi in inserimento nel campo del Pc
 
@@ -91,10 +90,6 @@ public class juegoCompleto {
                             naviPc[2]=2;
                             break;
                     }
-                    //Inizio
-                    colpiPng[0][0]=dimensioneCampoDiGioco; //Nella prima cella inserisce la lunghezza della matrice
-                    //Eliminare
-
                     //Creazione dei campi
                     int [][] campoPc=funzBattagliaNavale2.campoDiBattaglia(dimensioneCampoDiGioco); //Campo del Pc
                     int [][] campoGiocatore=funzBattagliaNavale2.campoDiBattaglia(dimensioneCampoDiGioco); //Campo del Giocatore
@@ -162,10 +157,9 @@ public class juegoCompleto {
                             System.out.println("Esito turno avversario:");
                             //Inserimento del colpo
                             //Versione TEMPORANEA
-                            funzBattagliaNavale2.colpoPng1(colpiPng,livello); //Cambiare
-                            rigaColpo=colpiPng[livello][0]; //Cambiare
-                            colonnaColpo=colpiPng[livello][1]; //Cambiare
-                            livello++; //Cambiare
+                            funzBattagliaNavale2.colpoPc(campoGiocatore,dimensioneCampoDiGioco,colpoDaEffetuare);
+                            rigaColpo=colpoDaEffetuare[0]; //Cambiare
+                            colonnaColpo=colpoDaEffetuare[1]; //Cambiare
 
                             //Risultato del colpo
                             switch (funzBattagliaNavale2.colpito(campoGiocatore,rigaColpo,colonnaColpo)){

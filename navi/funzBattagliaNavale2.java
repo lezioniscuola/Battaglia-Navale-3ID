@@ -196,7 +196,7 @@ public class funzBattagliaNavale2 {
         m[livello][0]=riga;
         m[livello][1]=colonna;
     }
-    public static void colpoPc (int [][] campoGiocatore, int dimensioneCampoDiGioco, int [] colpoDaEffettuare) { //Rocchi Nuova Versione da testare
+    public static void colpoPc (int [][] campoGiocatore, int dimensioneCampoDiGioco, int [] colpoDaEffettuare) { //Rocchi nuova versione
         int rigaColpo,colonnaColpo;
         boolean isGiaColpito=false;
         do {
@@ -206,7 +206,7 @@ public class funzBattagliaNavale2 {
             //Verifica di cosa contiene la casella della matrice del campo
             if (campoGiocatore[rigaColpo][colonnaColpo] == 2 || campoGiocatore[rigaColpo][colonnaColpo] == 3){
                 isGiaColpito=true;
-            }
+            } 
         }while (isGiaColpito);
         colpoDaEffettuare[0]=rigaColpo;
         colpoDaEffettuare[1]=colonnaColpo;

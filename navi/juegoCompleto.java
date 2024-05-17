@@ -9,7 +9,7 @@ public class juegoCompleto {
         do {
             System.out.println("Benvenuto nella battaglia navale, inserire di seguito il tuo nome: ");
             nome=in.nextLine();
-            System.out.println("Benvenuto"+nome+", ora devi scegliere una delle opzioni seguenti: ");
+            System.out.println("Benvenuto "+nome+", ora devi scegliere una delle opzioni seguenti: ");
             System.out.println("0-Gioca\n1-Ripassa le regole\n2-Esci");
             opzioneSceltaMenu=in.nextInt();
             switch (opzioneSceltaMenu){
